@@ -1,7 +1,13 @@
 from rest_framework.serializers import ModelSerializer
-from ..models import MarcaModel
+from ..models import MarcaModel, CarroModeloModel
 
 class MarcaSerializer(ModelSerializer):
     class Meta:
         model = MarcaModel
-        fields = ['codigo', 'nome']
+        fields = '__all__'
+
+
+class CarroModelSerializer(ModelSerializer):
+    class Meta:
+        model = MarcaModel
+        fields = '__all__'
