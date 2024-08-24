@@ -11,3 +11,7 @@ class CarroModelSerializer(ModelSerializer):
     class Meta:
         model = CarroModeloModel
         fields = '__all__'
+
+        #Filtro
+        #funil
+        

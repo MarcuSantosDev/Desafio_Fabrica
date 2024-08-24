@@ -20,7 +20,7 @@ class MarcaModelViewSet(ModelViewSet):   # se dar um post na rota desse viewset 
         requisicao = requests.get(site)
         json = requisicao.json()
         
-        marcasSalvas = []
+        marcasSalvas = [] 
         for item in json:
             codigo = item.get('codigo')
             nome = item.get('nome')
@@ -31,9 +31,13 @@ class MarcaModelViewSet(ModelViewSet):   # se dar um post na rota desse viewset 
             }
         
             meuserializer = MarcaSerializer(data=dadosrecebidos)
-            if meuserializer.is_valid():
-                meuserializer.save()
+            if meuserializer.is_valid(): #verifica se o serializers é valido, se for valido volta True
+                meuserializer.save()# salva no bd
                 marcasSalvas.append(meuserializer.data)
+            else:
+                return Response(meuserializer.errors, status=status.HTTP_400_BAD_REQUEST)
+            
+            return Response(meuserializer.data, status=status.HTTP_201_CREATED)    
     
 
 
@@ -49,12 +53,12 @@ class CarroModeloModelViewSet(ModelViewSet):
         site = f'https://parallelum.com.br/fipe/api/v1/carros/marcas/{marca}/modelos'
         try:
             requisicao = requests.get(site)
-            requisicao.raise_for_status()  # Levanta um erro para códigos de status HTTP 4xx/5xx
+            requisicao.raise_for_status()  
             json_response = requisicao.json()    
 
             modelos_salvos = []
 
-            modelos = json_response.get('modelos', [])  # Acessa a lista de modelos no JSON
+            modelos = json_response.get('modelos', [])  
 
             for item in modelos:
                 codigo = item.get('codigo', '')
