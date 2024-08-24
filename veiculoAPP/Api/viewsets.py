@@ -39,7 +39,7 @@ class MarcaModelViewSet(ModelViewSet):   # se dar um post na rota desse viewset 
 
 
 class CarroModeloModelViewSet(ModelViewSet):
-    queryset = MarcaModel.objects.all()
+    queryset = CarroModeloModel.objects.all()
     serializer_class = CarroModelSerializer   # se dar um post na rota desse viewset vai cadastrar todas as marcas no Banco de dados
     def create(self, request):
         marca = request.data.get('marca')  # Usuário manda a marca no body
