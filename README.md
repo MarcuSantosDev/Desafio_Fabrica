@@ -1,5 +1,5 @@
 Resumo breve do que irá ser abordado 📌
-Consiste em ler os dados de uma api externa (https://parallelum.com.br/fipe/api/v1) e retornar o código e o modelo.
+Consiste em ler os dados de uma api externa (https://parallelum.com.br/fipe/api/v1) e retornar uma Fipe de veiculos.
 
 ▪️Requerimentos 📋
 Antes de tudo, é de suma importância ter o Python instalado, além de ser indispensável a criação de um ambiente virtual e a instalação de dependências essenciais.
